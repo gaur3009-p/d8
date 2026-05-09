@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Suyash Singh Tomar – Dermatologist | Lucknow</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #003366;
+    --red: #c0392b;
+    --gold: #b8860b;
+    --light-blue: #e8f0f8;
+    --mid-blue: #5b8db8;
+    --text: #1a2840;
+    --muted: #6b7a8e;
+    --white: #ffffff;
+    --off-white: #f5f7fa;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Source Sans 3', sans-serif; background: #fff; color: var(--text); }
+
+  /* TOP UTILITY BAR */
+  .top-bar { background: var(--navy); color: rgba(255,255,255,0.75); padding: 0.45rem 6vw; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; }
+  .top-bar a { color: rgba(255,255,255,0.75); text-decoration: none; }
+  .top-bar a:hover { color: #fff; }
+  .top-bar-links { display: flex; gap: 1.5rem; }
+  .top-cta { background: var(--red); color: #fff !important; padding: 0.25rem 0.8rem; border-radius: 2px; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100; background: #fff;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 6vw; height: 75px; border-bottom: 3px solid var(--navy);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 1rem; }
+  .logo-icon { width: 48px; height: 48px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; font-weight: 700; font-family: 'Playfair Display', serif; }
+  .logo-text { line-height: 1.2; }
+  .logo-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--navy); font-weight: 700; }
+  .logo-sub { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  nav ul { display: flex; gap: 0; list-style: none; }
+  nav ul li a { display: block; padding: 0 1.2rem; height: 75px; line-height: 75px; font-size: 0.88rem; font-weight: 500; color: var(--text); text-decoration: none; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: all 0.2s; }
+  nav ul li a:hover { color: var(--navy); border-bottom-color: var(--red); }
+  .nav-appt { background: var(--red); color: #fff; padding: 0.65rem 1.4rem; border-radius: 2px; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: background 0.2s; }
+  .nav-appt:hover { background: #a93226; }
+
+  /* HERO - Mayo style: split with image left, content right */
+  .hero { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 88vh; }
+  .hero-img { position: relative; overflow: hidden; }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-img-overlay { position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, rgba(255,255,255,0.3)); }
+  .hero-content { display: flex; flex-direction: column; justify-content: center; padding: 4rem 5vw 4rem 3rem; background: var(--off-white); }
+  .hero-tag { color: var(--red); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; border-left: 3px solid var(--red); padding-left: 0.8rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 3.5vw, 3.2rem); color: var(--navy); line-height: 1.15; margin-bottom: 0.5rem; }
+  .hero .credential { color: var(--gold); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1.5rem; }
+  .hero p { color: var(--muted); line-height: 1.85; font-size: 0.97rem; margin-bottom: 2rem; max-width: 420px; }
+  .hero-actions { display: flex; flex-direction: column; gap: 0.8rem; max-width: 300px; }
+  .btn-red { background: var(--red); color: #fff; padding: 0.95rem 1.8rem; border-radius: 2px; text-decoration: none; font-size: 0.88rem; font-weight: 600; text-align: center; transition: background 0.2s; }
+  .btn-red:hover { background: #a93226; }
+  .btn-navy-outline { border: 2px solid var(--navy); color: var(--navy); padding: 0.9rem 1.8rem; border-radius: 2px; text-decoration: none; font-size: 0.88rem; font-weight: 600; text-align: center; transition: all 0.2s; }
+  .btn-navy-outline:hover { background: var(--navy); color: #fff; }
+  .hero-stats-strip { background: var(--navy); padding: 1.5rem 6vw; display: flex; gap: 4rem; justify-content: center; }
+  .hstat { text-align: center; color: #fff; }
+  .hstat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; }
+  .hstat-lbl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); margin-top: 0.2rem; }
+
+  /* SERVICES */
+  .section { padding: 80px 6vw; }
+  .section-hdr { text-align: center; margin-bottom: 3.5rem; }
+  .section-hdr .tag { color: var(--red); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem; }
+  .section-hdr h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--navy); }
+  .section-hdr p { color: var(--muted); font-size: 0.97rem; margin-top: 0.8rem; max-width: 560px; margin-inline: auto; line-height: 1.8; }
+  .services-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid #dde4ec; }
+  .svc { padding: 2.2rem 1.8rem; border-right: 1px solid #dde4ec; border-bottom: 1px solid #dde4ec; transition: all 0.25s; }
+  .svc:hover { background: var(--light-blue); }
+  .svc-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: rgba(0,51,102,0.12); font-weight: 700; margin-bottom: 0.8rem; }
+  .svc h3 { font-size: 0.97rem; font-weight: 600; color: var(--navy); margin-bottom: 0.6rem; }
+  .svc p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+  .svc-link { display: inline-block; margin-top: 0.8rem; color: var(--red); font-size: 0.8rem; font-weight: 600; text-decoration: none; }
+  .svc-link::after { content: ' →'; }
+
+  /* ABOUT */
+  .about-bg { background: var(--off-white); }
+  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-img-wrap { position: relative; }
+  .about-img-wrap img { width: 100%; height: 520px; object-fit: cover; object-position: top; }
+  .about-badge { position: absolute; bottom: -20px; right: 20px; background: var(--navy); color: #fff; padding: 1.5rem 2rem; }
+  .about-badge span { font-family: 'Playfair Display', serif; font-size: 2.5rem; display: block; color: #fff; }
+  .about-badge small { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); }
+  .about-content { padding-bottom: 20px; }
+  .about-content .tag { color: var(--red); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 1rem; }
+  .about-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.4rem); color: var(--navy); margin-bottom: 1.5rem; line-height: 1.2; }
+  .about-content p { color: var(--muted); line-height: 1.9; font-size: 0.97rem; margin-bottom: 1rem; }
+  .qual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.5rem; }
+  .qual-item { background: #fff; padding: 0.8rem 1rem; border-left: 3px solid var(--red); font-size: 0.85rem; font-weight: 500; color: var(--navy); }
+
+  /* APPOINTMENT */
+  .appt-strip { background: var(--navy); padding: 5rem 6vw; }
+  .appt-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+  .appt-info h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #fff; margin-bottom: 1rem; }
+  .appt-info p { color: rgba(255,255,255,0.6); line-height: 1.8; font-size: 0.95rem; margin-bottom: 2rem; }
+  .contact-list { display: flex; flex-direction: column; gap: 1.2rem; }
+  .cl-item { display: flex; gap: 1rem; align-items: center; }
+  .cl-icon { width: 38px; height: 38px; background: rgba(255,255,255,0.1); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #fff; flex-shrink: 0; }
+  .cl-item p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+  .appt-form { background: #fff; padding: 2.5rem; }
+  .appt-form h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 1.5rem; }
+  .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .fld { margin-bottom: 1rem; }
+  .fld label { display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.4rem; }
+  .fld input, .fld select, .fld textarea { width: 100%; border: 1px solid #d1dae6; padding: 0.8rem 1rem; font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem; color: var(--text); outline: none; transition: border-color 0.2s; border-radius: 0; }
+  .fld input:focus, .fld select:focus, .fld textarea:focus { border-color: var(--navy); }
+  .fld textarea { resize: vertical; min-height: 80px; }
+  .fsbtn { width: 100%; background: var(--red); color: #fff; border: none; padding: 1rem; font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; transition: background 0.2s; }
+  .fsbtn:hover { background: #a93226; }
+
+  /* REVIEWS */
+  .reviews { background: var(--off-white); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .rcard { background: #fff; padding: 2rem; border-top: 3px solid var(--navy); }
+  .rcard .stars { color: var(--gold); margin-bottom: 1rem; }
+  .rcard blockquote { color: var(--muted); font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.2rem; font-style: italic; }
+  .rcard-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+  .rcard-sub { font-size: 0.78rem; color: var(--muted); }
+  .divider { width: 40px; height: 3px; background: var(--red); margin: 1rem 0; }
+
+  /* FOOTER */
+  footer { background: #001f3f; color: rgba(255,255,255,0.65); padding: 4rem 6vw 2rem; }
+  .footer-wrap { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .fbrand { }
+  .fbrand .flogo { font-family: 'Playfair Display', serif; color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; display: block; }
+  .fbrand p { font-size: 0.85rem; line-height: 1.8; }
+  footer h5 { color: rgba(255,255,255,0.9); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 1.2rem; }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 0.55rem; }
+  footer ul a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  footer ul a:hover { color: #fff; }
+  .fbar { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .fbar p { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-img { height: 320px; }
+    .hero-stats-strip { gap: 2rem; flex-wrap: wrap; }
+    .services-row { grid-template-columns: 1fr 1fr; }
+    .about-inner, .appt-inner { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .footer-wrap { grid-template-columns: 1fr 1fr; }
+    nav ul { display: none; }
+    .top-bar-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div>📍 Qaiserbagh / Balaganj, Lucknow &nbsp;|&nbsp; Mon–Sat: 9am – 6pm</div>
+  <div class="top-bar-links">
+    <a href="#">Patient Portal</a>
+    <a href="#">Health Library</a>
+    <a href="#contact" class="top-cta">Request Appointment</a>
+  </div>
+</div>
+
+<nav>
+  <div class="logo-wrap">
+    <div class="logo-icon">ST</div>
+    <div class="logo-text">
+      <div class="logo-name">Dr. Suyash Singh Tomar</div>
+      <div class="logo-sub">MD Dermatology · Lucknow</div>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Patient Stories</a></li>
+    <li><a href="#contact">Location</a></li>
+  </ul>
+  <a href="#contact" class="nav-appt">Book Appointment</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=90" alt="Dermatology Clinic">
+    <div class="hero-img-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">8 Years of Clinical Excellence · Lucknow</div>
+    <h1>Trusted Dermatology Care by Dr. Suyash Singh Tomar</h1>
+    <div class="credential">MBBS · MD Dermatology · Consultant Dermatologist</div>
+    <p>Serving patients across Qaiserbagh and Balaganj, Lucknow with personalised, evidence-based skin treatments and a compassionate approach to dermatological health.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-red">Request an Appointment</a>
+      <a href="#services" class="btn-navy-outline">View All Services</a>
+    </div>
+  </div>
+</section>
+<div class="hero-stats-strip">
+  <div class="hstat"><div class="hstat-num">8+</div><div class="hstat-lbl">Years Experience</div></div>
+  <div class="hstat"><div class="hstat-num">6K+</div><div class="hstat-lbl">Patients Treated</div></div>
+  <div class="hstat"><div class="hstat-num">15+</div><div class="hstat-lbl">Specialised Treatments</div></div>
+  <div class="hstat"><div class="hstat-num">4.9★</div><div class="hstat-lbl">Patient Rating</div></div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-hdr">
+    <div class="tag">Our Specialisations</div>
+    <h2>Comprehensive Skin & Hair Care</h2>
+    <p>Offering a full spectrum of dermatological treatments for skin diseases, cosmetic concerns, and hair disorders.</p>
+  </div>
+  <div class="services-row">
+    <div class="svc"><div class="svc-num">01</div><h3>Medical Dermatology</h3><p>Diagnosis and treatment of eczema, psoriasis, fungal infections, vitiligo and other skin diseases.</p><a href="#" class="svc-link">Learn more</a></div>
+    <div class="svc"><div class="svc-num">02</div><h3>Cosmetic Dermatology</h3><p>Chemical peels, microdermabrasion, botox, fillers and advanced aesthetic treatments.</p><a href="#" class="svc-link">Learn more</a></div>
+    <div class="svc"><div class="svc-num">03</div><h3>Laser Procedures</h3><p>Laser hair removal, scar revision, skin resurfacing and pigmentation correction.</p><a href="#" class="svc-link">Learn more</a></div>
+    <div class="svc"><div class="svc-num">04</div><h3>Hair & Scalp</h3><p>PRP therapy, hair fall treatment, alopecia management and scalp health solutions.</p><a href="#" class="svc-link">Learn more</a></div>
+    <div class="svc"><div class="svc-num">05</div><h3>Acne Management</h3><p>Customised protocols for acne, pimples, oily skin and post-acne scarring.</p><a href="#" class="svc-link">Learn more</a></div>
+    <div class="svc"><div class="svc-num">06</div><h3>Allergy Testing</h3><p>Patch tests, contact dermatitis evaluation and allergy-driven skin conditions.</p><a href="#" class="svc-link">Learn more</a></div>
+    <div class="svc"><div class="svc-num">07</div><h3>Paediatric Derm</h3><p>Gentle skin care solutions for children including eczema, rashes and infections.</p><a href="#" class="svc-link">Learn more</a></div>
+    <div class="svc"><div class="svc-num">08</div><h3>Skin Brightening</h3><p>Safe, clinical-grade pigmentation and dark spot treatments for all skin types.</p><a href="#" class="svc-link">Learn more</a></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-bg" id="about">
+  <div class="about-inner">
+    <div class="about-img-wrap">
+      <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&q=85" alt="Dr. Suyash Singh Tomar">
+      <div class="about-badge"><span>8+</span><small>Years in<br>Dermatology</small></div>
+    </div>
+    <div class="about-content">
+      <div class="tag">About the Doctor</div>
+      <h2>Dr. Suyash Singh Tomar<br><span style="font-size:1.2rem;color:var(--gold);">MBBS · MD Dermatology</span></h2>
+      <p>Dr. Suyash Singh Tomar is a distinguished Consultant Dermatologist practising in the heart of Lucknow at Qaiserbagh / Balaganj. With 8 years of dedicated experience in clinical and cosmetic dermatology, he has built a reputation for thorough diagnostics and patient-centred care.</p>
+      <p>His approach combines the precision of modern dermatological science with a warm, empathetic communication style — ensuring patients are fully informed and comfortable throughout their treatment journey.</p>
+      <div class="qual-grid">
+        <div class="qual-item">MBBS Graduate</div>
+        <div class="qual-item">MD Dermatology</div>
+        <div class="qual-item">8 Yrs Clinical Practice</div>
+        <div class="qual-item">Laser Certified</div>
+        <div class="qual-item">Cosmetic Training</div>
+        <div class="qual-item">Aesthetic Medicine</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews" id="reviews">
+  <div class="section-hdr">
+    <div class="tag">Patient Stories</div>
+    <h2>What Our Patients Say</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="rcard"><div class="stars">★★★★★</div><div class="divider"></div><blockquote>"Dr. Tomar is incredibly knowledgeable and takes time to listen. My psoriasis is now under control after years of struggle. I would recommend him to anyone."</blockquote><div class="rcard-name">Meena Bajpai</div><div class="rcard-sub">Psoriasis Treatment · Lucknow</div></div>
+    <div class="rcard"><div class="stars">★★★★★</div><div class="divider"></div><blockquote>"Amazing experience! Got PRP done for hair fall and the results started showing in just 2 months. Very professional setup, excellent follow-up care."</blockquote><div class="rcard-name">Abhishek Srivastava</div><div class="rcard-sub">PRP Hair Therapy · Qaiserbagh</div></div>
+    <div class="rcard"><div class="stars">★★★★★</div><div class="divider"></div><blockquote>"Best dermatologist in Lucknow, period. Got laser treatment for my acne scars. The doctor is approachable and the clinic is very hygienic. Highly satisfied."</blockquote><div class="rcard-name">Swati Mishra</div><div class="rcard-sub">Laser Acne Scar Treatment · Balaganj</div></div>
+  </div>
+</section>
+
+<!-- APPOINTMENT -->
+<section class="appt-strip" id="contact">
+  <div class="appt-inner">
+    <div class="appt-info">
+      <h2>Book Your Appointment</h2>
+      <p>Getting the right skin care begins with a conversation. Schedule a comprehensive consultation with Dr. Tomar today.</p>
+      <div class="contact-list">
+        <div class="cl-item"><div class="cl-icon">📍</div><p>Qaiserbagh / Balaganj, Lucknow, UP</p></div>
+        <div class="cl-item"><div class="cl-icon">📞</div><p>+91 98XXX XXXXX</p></div>
+        <div class="cl-item"><div class="cl-icon">🕐</div><p>Mon – Sat: 9:00 AM – 6:00 PM</p></div>
+        <div class="cl-item"><div class="cl-icon">✉️</div><p>drtomar.skin@gmail.com</p></div>
+      </div>
+    </div>
+    <div class="appt-form">
+      <h3>Request an Appointment</h3>
+      <div class="frow">
+        <div class="fld"><label>First Name</label><input type="text" placeholder="Your first name"></div>
+        <div class="fld"><label>Last Name</label><input type="text" placeholder="Your last name"></div>
+      </div>
+      <div class="fld"><label>Phone</label><input type="tel" placeholder="+91 98XXX XXXXX"></div>
+      <div class="fld"><label>Concern</label>
+        <select>
+          <option>Select your concern</option>
+          <option>Acne / Pimples</option>
+          <option>Hair Fall</option>
+          <option>Psoriasis / Eczema</option>
+          <option>Laser Treatment</option>
+          <option>Pigmentation</option>
+          <option>General Consultation</option>
+        </select>
+      </div>
+      <div class="frow">
+        <div class="fld"><label>Preferred Date</label><input type="date"></div>
+        <div class="fld"><label>Preferred Time</label>
+          <select><option>Morning (9–12pm)</option><option>Afternoon (12–3pm)</option><option>Evening (3–6pm)</option></select>
+        </div>
+      </div>
+      <div class="fld"><label>Additional Notes</label><textarea placeholder="Briefly describe your concern..."></textarea></div>
+      <button class="fsbtn">Schedule My Appointment</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-wrap">
+    <div class="fbrand"><span class="flogo">Dr. Suyash Singh Tomar</span><p>Consultant Dermatologist at Qaiserbagh / Balaganj, Lucknow. Providing trusted, evidence-based skin and hair care for over 8 years.</p></div>
+    <div><h5>Treatments</h5><ul><li><a href="#">Medical Dermatology</a></li><li><a href="#">Cosmetic Procedures</a></li><li><a href="#">Laser Treatments</a></li><li><a href="#">PRP Hair Therapy</a></li><li><a href="#">Acne Management</a></li></ul></div>
+    <div><h5>Information</h5><ul><li><a href="#">About Dr. Tomar</a></li><li><a href="#">Patient Reviews</a></li><li><a href="#">Health Articles</a></li><li><a href="#">Gallery</a></li></ul></div>
+    <div><h5>Visit Us</h5><ul><li><a href="#">Qaiserbagh, Lucknow</a></li><li><a href="#">+91 98XXX XXXXX</a></li><li><a href="#">Mon–Sat 9am–6pm</a></li><li><a href="#">Book Online</a></li></ul></div>
+  </div>
+  <div class="fbar">
+    <p>© 2025 Dr. Suyash Singh Tomar. All rights reserved.</p>
+    <p>Lucknow · Uttar Pradesh · India</p>
+  </div>
+</footer>
+
+</body>
+</html>
